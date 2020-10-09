@@ -264,7 +264,7 @@ for model in models:
     accuracies = cross_val_score(model, features, labels, scoring='accuracy', cv=CV)
     for fold_idx, accuracy in enumerate(accuracies):
         entries.append((model_name, fold_idx, accuracy))
-print("C1 - ")
+print("C1 - Model Cross Validation Complete")
 cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
 fig, ax = plt.subplots(figsize=(8,8))
 sns.boxplot(x='model_name', y='accuracy', data=cv_df)
